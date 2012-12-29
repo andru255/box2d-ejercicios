@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Rope chain</title>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="400"></canvas>
+	<!-- polifyll requestAnimationFrame-->
+    <script async>
+		// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+		window.requestAnimFrame = (function(){
+			  return  window.requestAnimationFrame       || 
+					  window.webkitRequestAnimationFrame || 
+					  window.mozRequestAnimationFrame    || 
+					  window.oRequestAnimationFrame      || 
+					  window.msRequestAnimationFrame     || 
+					  function(/* function */ callback, /* DOMElement */ element){
+						window.setTimeout(callback, 1000 / 60);
+					  };
+		})();
+    </script>
+	<script type="text/javascript" src="../js/Box2d.min.js"></script>
+	<script type="text/javascript">
+	//basenames
+	var   b2Vec2 = Box2D.Common.Math.b2Vec2, 
+			  b2AABB = Box2D.Collision.b2AABB,
+			  b2BodyDef = Box2D.Dynamics.b2BodyDef,
+			  b2Body = Box2D.Dynamics.b2Body,
+			  b2FixtureDef = Box2D.Dynamics.b2FixtureDef,
+			  b2Fixture = Box2D.Dynamics.b2Fixture,
+			  b2World = Box2D.Dynamics.b2World,
+			  b2MassData = Box2D.Collision.Shapes.b2MassData,
+			  b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape,
+			  b2CircleShape = Box2D.Collision.Shapes.b2CircleShape,
+			  b2Shape = Box2D.Collision.Shapes.b2Shape,
+			  b2DebugDraw = Box2D.Dynamics.b2DebugDraw,
+			  b2MouseJoint =  Box2D.Dynamics.Joints.b2MouseJoint,
+			  mouseJoint = Box2D.Dynamics.Joints.b2MouseJoint,
+			  b2MouseJointDef =  Box2D.Dynamics.Joints.b2MouseJointDef,
+			  b2RevoluteJoint = Box2D.Dynamics.Joints.b2RevoluteJoint,
+			  b2RevoluteJointDef = Box2D.Dynamics.Joints.b2RevoluteJointDef;
+	//globalParams
+	var world = new b2World(new b2Vec2(0,10),true),
+		wScale = 30,
+		cnv = document.getElementById('canvas'),
+		ctx = cnv.getContext('2d'),
+		debug = true;
+	</script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
